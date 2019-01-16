@@ -9,9 +9,11 @@
         <script type="text/javascript">
             function prepareFrame() {
                 var ifrm = document.createElement("iframe");
+                ifrm.setAttribute("allow", "microphone; camera");
                 ifrm.setAttribute("src", "https://shoppingnow.xyz:3333/");
                 ifrm.style.width = "640px";
                 ifrm.style.height = "480px";
+                ifrm.sandbox = "allow-scripts allow-same-origin";
                 document.body.appendChild(ifrm);
             }
             $(document).ready(function(){
