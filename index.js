@@ -1,14 +1,29 @@
-var http = require('http');
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+var fs = require("fs");
+const app = express();
+var https = require('https');
+const http = require('http');
+var port = process.env.PORT || 3000;
 
-// app.get('/', (req, res) => res.send('Hello World!'))
+var options = {
+    cert: fs.readFileSync('/etc/letsencrypt/live/shoppingnow.xyz/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/shoppingnow.xyz/privkey.pem')
+};
+httpsServer = https.createServer(options, app);
 
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+httpsServer.listen(port, function() {
+    console.log('Audio call running port', port); 
+})
 
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.write('Hello World!');
-  res.end();
-}).listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
+})
+
+// httpServer = http.Server( app);
+// app.use(express.static('public'));
+
+
+// httpServer.listen(port, function(){
+//     console.log('Audio call running port', port);
+// })
