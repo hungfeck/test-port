@@ -5,6 +5,10 @@ var https = require('https');
 const http = require('http');
 var port = process.env.PORT || 3000;
 
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/index.html'); 
+})
+
 var options = {
     cert: fs.readFileSync('/etc/letsencrypt/live/shoppingnow.xyz/fullchain.pem'),
     key: fs.readFileSync('/etc/letsencrypt/live/shoppingnow.xyz/privkey.pem')
@@ -16,9 +20,7 @@ httpsServer.listen(port, function() {
 })
 
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/index.html');
-})
+
 
 // httpServer = http.Server( app);
 // app.use(express.static('public'));
