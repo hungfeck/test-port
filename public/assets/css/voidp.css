@@ -48,6 +48,10 @@
   .lt-xbutton-wrapper{
       cursor: pointer;
   }
+
+  .inCalling{
+    background: #D80027;
+  }
   
   .lt-xbutton-main-wrapper {
     left: 100px;
