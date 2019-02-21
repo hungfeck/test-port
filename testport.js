@@ -12,12 +12,12 @@ var options = {
 httpsServer = https.createServer(options, app);
 
 httpsServer.listen(port, function() {
-    console.log('Audio call running port', port); 
+    console.log('Test port running port', port); 
 })
 
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/index.html');
+  res.send('Hello world')
 })
 
 // httpServer = http.Server( app);
@@ -25,5 +25,5 @@ app.get('/', function(req, res){
 
 
 // httpServer.listen(port, function(){
-//     console.log('Audio call running port', port);
+//     console.log('Test port running port', port);
 // })
