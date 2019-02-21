@@ -3,11 +3,20 @@ var fs = require("fs");
 const app = express();
 var https = require('https');
 const http = require('http');
+// const bodyParser = require('body-parser')
 var port = process.env.PORT || 3000;
 
-app.use(express.static('public'));
+// app.use(bodyParser.json()); // support json encoded bodies
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use(express.static('public'));
+// app.get('/', function(req, res){
+//   res.sendFile(__dirname + '/public/index.html'); 
+// })
+
+
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/index.html'); 
+  res.send('Hello world')
 })
 
 var options = {
@@ -21,9 +30,6 @@ httpsServer.listen(port, function() {
 })
 
 
-app.get('/', function(req, res){
-  res.send('Hello world')
-})
 
 
 // httpServer = http.Server( app);
