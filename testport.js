@@ -3,7 +3,7 @@ var fs = require("fs");
 const app = express();
 var https = require('https');
 const http = require('http');
-var port = process.env.PORT || 3445;
+var port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 app.get('/', function(req, res){
